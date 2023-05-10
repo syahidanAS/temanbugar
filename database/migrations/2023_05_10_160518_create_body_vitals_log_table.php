@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->uuid('user_profile_uuid')->unique();
-            $table->float('body_weight')->nullable();
-            $table->float('body_height')->nullable();
-            $table->float('blood_pressure')->nullable();
-            $table->float('pulse_rate')->nullable();
-            $table->float('respiratory_rate')->nullable();
-            $table->float('temprature')->nullable();
+            $table->decimal('body_weight', 10,2)->nullable();
+            $table->decimal('body_height', 10,2)->nullable();
+            $table->decimal('blood_pressure', 10,2)->nullable();
+            $table->decimal('pulse_rate', 10,2)->nullable();
+            $table->decimal('respiratory_rate', 10,2)->nullable();
+            $table->decimal('temprature')->nullable();
             $table->timestamps();
         });
     }

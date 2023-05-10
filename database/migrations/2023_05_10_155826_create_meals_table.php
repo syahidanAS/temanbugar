@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('meal_name');
-            $table->float('calorie');
-            $table->float('fat');
-            $table->float('carbohydrate');
-            $table->float('proteins');
+            $table->decimal('calorie', 10,2);
+            $table->decimal('fat', 10,2);
+            $table->decimal('carbohydrate', 10,2);
+            $table->decimal('proteins', 10,2);
             $table->string('images')->nullable();
             $table->uuid('created_by');
             $table->timestamps();
