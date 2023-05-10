@@ -1,7 +1,7 @@
-# Laravel Auth Boilerplate
+# Temanbugar Service
 
 ## Overview
-This repository is used to speed up Restful API development using JWT authentication
+This repository is the core service of the Temanbugar platform
 
 ## Stack Architechture
 1. PHP 8, Laravel
@@ -11,7 +11,7 @@ This repository is used to speed up Restful API development using JWT authentica
 ## Local development quickstart
 Clone the repository
 ```
-$ git clone github.com/syahidanAS/laravel-jwt-auth-boilerplate.git
+$ git clone https://github.com/syahidanAS/temanbugar.git
 ```
 Copy the config file and adjust the needs
 ```
