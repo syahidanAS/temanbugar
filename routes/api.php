@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MealController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\StackController;
 use App\Http\Controllers\WorkController;
@@ -33,6 +34,11 @@ Route::group(['prefix' => 'auth', 'as'=> ''], function(){
 
 Route::middleware([AuthenticateJWT::class])->group(function(){
     Route::get('/me', [AuthController::class,'me']);
+    Route::get('/meals',[MealController::class, 'index'])->middleware('adminInterceptor');
+    Route::post('/meals',[MealController::class, 'store'])->middleware('adminInterceptor');
+    Route::put('/meals',[MealController::class, 'update'])->middleware('adminInterceptor');
+    Route::delete('/meals',[MealController::class, 'destroy'])->middleware('adminInterceptor');
+    Route::get('/meal/{uuid}',[MealController::class, 'show'])->middleware('adminInterceptor');
 });
 
 Route::get('/stacks', [StackController::class,'index']);

@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'authjwt' => \App\Http\Middleware\AuthenticateJWT::class,
         'superadminInterceptor' => \App\Http\Middleware\SuperadminInterceptor::class,
+        'adminInterceptor' => \App\Http\Middleware\AdminInterceptor::class,
     ];
 }
