@@ -32,7 +32,7 @@ Route::group(['prefix' => 'auth', 'as'=> ''], function(){
 
 
 Route::middleware([AuthenticateJWT::class])->group(function(){
-    Route::get('/me', [AuthController::class,'me'])->middleware('superadminInterceptor');;
+    Route::get('/me', [AuthController::class,'me']);
 });
 
 Route::get('/stacks', [StackController::class,'index']);

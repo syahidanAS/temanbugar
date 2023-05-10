@@ -2,7 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\UserAccount;
 use Closure;
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 use Illuminate\Http\Request;
 
 class AdminInterceptor
@@ -16,6 +19,17 @@ class AdminInterceptor
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        $extractedToken = explode(' ',$request->header('Authorization'))[1];
+        $decoded = JWT::decode($extractedToken, new Key(env('JWT_SECRET'), 'HS256'));
+        $response = UserAccount::where('uuid', $decoded->uuid)->first();
+        
+        if($response['role'] == "admin" || $response['role'] == "superadmin"){
+            return $next($request);
+        }
+        
+        return response()->json([
+            'status'  => 'failed',
+			'message' => 'sorry you do not have access to this content!'
+		], 401);
     }
 }

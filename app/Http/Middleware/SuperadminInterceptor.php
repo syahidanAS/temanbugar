@@ -30,7 +30,7 @@ class SuperadminInterceptor
         
         return response()->json([
             'status'  => 'failed',
-			'message' => 'Unauthorized!'
+			'message' => 'sorry you do not have access to this content!'
 		], 401);
     }
 }
